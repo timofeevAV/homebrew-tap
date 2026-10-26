@@ -4,6 +4,7 @@ class Kyvia < Formula
   url "https://github.com/timofeevAV/kyvia/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "0907d5dcfeb91696473e8ebd43e2012151f4559e046fccfb665357081b3ba36e"
   license "MIT"
+  revision 1
 
   depends_on "node" => :build
   depends_on :macos
@@ -12,6 +13,7 @@ class Kyvia < Formula
     system "./build.sh", "--no-install"
     prefix.install "Kyvia.app"
     bin.install_symlink prefix/"Kyvia.app/Contents/Resources/kyvia"
+    bin.install_symlink prefix/"Kyvia.app/Contents/Resources/kyvia" => "kv"
   end
 
   def caveats
@@ -30,5 +32,6 @@ class Kyvia < Formula
 
   test do
     assert_match "usage", shell_output("#{bin}/kyvia 2>&1", 2)
+    assert_match "usage", shell_output("#{bin}/kv 2>&1", 2)
   end
 end
