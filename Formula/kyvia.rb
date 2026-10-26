@@ -1,10 +1,9 @@
 class Kyvia < Formula
   desc "Menu-bar toast notifier for coding agents"
   homepage "https://github.com/timofeevAV/kyvia"
-  url "https://github.com/timofeevAV/kyvia/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "0907d5dcfeb91696473e8ebd43e2012151f4559e046fccfb665357081b3ba36e"
+  url "https://github.com/timofeevAV/kyvia/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "3cfd6805afd3b96930dca78164441a6ac223f5b91d23438151f501ed29f7444e"
   license "MIT"
-  revision 1
 
   depends_on "node" => :build
   depends_on :macos
