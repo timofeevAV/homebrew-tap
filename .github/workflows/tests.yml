@@ -1,0 +1,15 @@
+# Lint, build from source and test every formula on pull requests and on main.
+name: tests
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@main
+      - run: brew style timofeevav/tap
+      - run: brew audit --strict --formula timofeevav/tap/kyvia
+      - run: brew install --build-from-source timofeevav/tap/kyvia
+      - run: brew test timofeevav/tap/kyvia
